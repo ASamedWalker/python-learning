@@ -160,6 +160,13 @@ class Battery:
 
     print(f"This car can go about {range} miles on a full charge.")
 
+  def upgrade_battery(self):
+    if self.battery_size == 75:
+      self.battery_size = 100
+      print("Upgraded the battery to 100 kWh.")
+    else:
+      print("The battery is already upgraded.")
+
 class ElectricCar(Car):
   """Represent aspects of a car, specific to electric vehicles."""
 
@@ -174,8 +181,18 @@ class ElectricCar(Car):
     """Electric cars don't have a gas tanks."""
     print("This car doesn't need a gas tank!")
 
-my_tesla = ElectricCar('tesla', 'model s', 2019)
-print(my_tesla.get_descriptive_name())
+# my_tesla = ElectricCar('tesla', 'model s', 2019)
+# print(my_tesla.get_descriptive_name())
+
+my_tesla = ElectricCar('tesla', 'model s', 2022)
+print(my_tesla.battery.battery_size)
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.describe_battery()
+
+print("\nTry upgrading the battery a second time.")
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.describe_battery()
+
 
 
 
@@ -183,7 +200,8 @@ print(my_tesla.get_descriptive_name())
 # Once a child class is established, you can define methods and attributes for that class
 
 # Overriding Methods from the Parent Class
-# One way to override from theparent class
+# One way to override from the P
+# .arent class
 # you can make the child classes retain what they need and 
 # override anything you don't need from the parent class.
 
@@ -201,5 +219,5 @@ print(my_tesla.get_descriptive_name())
 #     """Print a statement describing the battery size."""
 #     print(f"This car has a {self.battery_size}-kWh battery.")
 
-my_tesla.battery.describe_battery()
-my_tesla.battery.get_range()
+# my_tesla.battery.describe_battery()
+# my_tesla.battery.get_range()

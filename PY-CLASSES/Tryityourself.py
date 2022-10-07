@@ -155,5 +155,38 @@ class IceCreamStand(Restaurant):
     for flavor in self.flavors:
       print(f" - {flavor.title()}")
 
-my_flavors = IceCreamStand('Lickyourhands', 'Icecream')
-my_flavors.get_icecream_flavors()
+# my_flavors = IceCreamStand('Lickyourhands', 'Icecream')
+# my_flavors.get_icecream_flavors()
+
+# 9-7 Admin:
+# Creating an admin class
+class Admin(User):
+  """A simple attempt to model a admin"""
+
+  def __init__(self, first_name, last_name, relationship, employed):
+    """Initializing the parent class"""
+    # attributes
+    super().__init__(first_name, last_name, relationship, employed)
+    self.privileges = Privileges()
+
+
+
+# 9-8 Privileges:
+# Creating a seperate privilege class
+class Privileges:
+  """A simple model of an Admin Privileges"""
+  def __init__(self):
+    self.privileges = ['can add post', 'ca delete post', 'can ban user']
+  
+    # Methods
+  def show_privileges(self):
+
+    print(f"Privileges granted to the admin are: ")
+    for privilege in self.privileges:
+      print(f" - {privilege}")
+
+
+admin_user = Admin('Mike', 'Joe', 'Manager', 'yes')
+admin_user.privileges.show_privileges()
+
+# 9-9 Battery Update:
