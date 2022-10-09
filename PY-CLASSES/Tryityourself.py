@@ -176,7 +176,7 @@ class Admin(User):
 class Privileges:
   """A simple model of an Admin Privileges"""
   def __init__(self):
-    self.privileges = ['can add post', 'ca delete post', 'can ban user']
+    self.privileges = ['can add post', 'can delete post', 'can ban user']
   
     # Methods
   def show_privileges(self):
@@ -190,3 +190,6 @@ admin_user = Admin('Mike', 'Joe', 'Manager', 'yes')
 admin_user.privileges.show_privileges()
 
 # 9-9 Battery Update:
+# 9-10 Imported Restaurant
+# 9-11 Imported Admin
+# 9-12 Multiple Modules

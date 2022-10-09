@@ -184,14 +184,14 @@ class ElectricCar(Car):
 # my_tesla = ElectricCar('tesla', 'model s', 2019)
 # print(my_tesla.get_descriptive_name())
 
-my_tesla = ElectricCar('tesla', 'model s', 2022)
-print(my_tesla.battery.battery_size)
-my_tesla.battery.upgrade_battery()
-my_tesla.battery.describe_battery()
+# my_tesla = ElectricCar('tesla', 'model s', 2022)
+# print(my_tesla.battery.battery_size)
+# my_tesla.battery.upgrade_battery()
+# my_tesla.battery.describe_battery()
 
-print("\nTry upgrading the battery a second time.")
-my_tesla.battery.upgrade_battery()
-my_tesla.battery.describe_battery()
+# print("\nTry upgrading the battery a second time.")
+# my_tesla.battery.upgrade_battery()
+# my_tesla.battery.describe_battery()
 
 
 
@@ -223,7 +223,6 @@ my_tesla.battery.describe_battery()
 # my_tesla.battery.get_range()
 
 
-=======
 # IMPORTING CLASSES
 # Importing a Single Class
 
@@ -234,4 +233,68 @@ my_tesla.battery.describe_battery()
 # Importing All Classes from a Module
 # You can use the syntax "from module_name import *"
 # But it is stil not recommended
->>>>>>> 5e9422927afacfdf1b4dcbad1ee7b81bfaa222ef
+
+
+# IMPORTING A MODULE INTO A MODULE
+# USING ALIASES
+
+# THE PYTHON STANDARD LIBRARY
+# Using already existing modules including in the python 
+# library in your program
+# This module randomly generates numbers
+# from random import randint
+# randint(1, 6)
+
+# Another module is the choice() function which list or tuple 
+# returns a randomly chosen element
+# from random import choice
+# players = ['charles', 'martina', 'michael', 'florence', 'eli']
+# first_up = choice(players)
+# first_up
+
+
+# 9-13 Dice
+from random import randint, choice
+
+class Die:
+  """A simple dice game."""
+
+  def __init__(self) -> None:
+    # self.sides = 6  #This is a 6 sided die
+    # self.sides = 10 #This is a 10 sided die
+    self.sides = 20 #This is a 20 sided die
+
+  def roll_die(self):
+    return randint(1, self.sides)
+
+my_dice = Die()
+results = []
+for roll_num in range(10):
+  result = my_dice.roll_die()
+  results.append(result)
+print("10 rolls of a 6-sided die:")
+print(results)
+
+# 9-14 Lottery:
+lottery_tickets = [3, 4, 5, 6, 9, 7, 2, 10, 8, 1, 'r', 'g', 'h', 'z', 'e']
+
+winning_ticket = []
+print("Let's see what the winning ticket is...")
+
+# We use a while loop because we don't want to keep repeating the
+# winning numbers or letters
+
+while len(winning_ticket) < 4:
+  pulled_item = choice(lottery_tickets)
+
+  if pulled_item not in winning_ticket:
+    print(f"We pulled a {pulled_item}! ")
+    winning_ticket.append(pulled_item)
+    
+print(f"The final winning ticket is: {winning_ticket}")
+
+# 9-15 Lottery Analysis:
+# my_ticket = [1,2,3,4,5,9]
+# while my_ticket:
+#   if my_ticket == choice(my_ticket):
+#     print(f"The loop took ")
