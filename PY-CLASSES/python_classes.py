@@ -223,4 +223,15 @@ my_tesla.battery.describe_battery()
 # my_tesla.battery.get_range()
 
 
-# IMPORTING A MODULE INTO A MODULE
+=======
+# IMPORTING CLASSES
+# Importing a Single Class
+
+
+# Storing Multiple Classes in a Module
+# Importing Multiple Classes from a Module
+# Importing an Entire Module
+# Importing All Classes from a Module
+# You can use the syntax "from module_name import *"
+# But it is stil not recommended
+>>>>>>> 5e9422927afacfdf1b4dcbad1ee7b81bfaa222ef
