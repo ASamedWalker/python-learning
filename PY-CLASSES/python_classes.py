@@ -276,25 +276,77 @@ print("10 rolls of a 6-sided die:")
 print(results)
 
 # 9-14 Lottery:
-lottery_tickets = [3, 4, 5, 6, 9, 7, 2, 10, 8, 1, 'r', 'g', 'h', 'z', 'e']
+# lottery_tickets = [3, 4, 5, 6, 9, 7, 2, 10, 8, 1, 'r', 'g', 'h', 'z', 'e']
 
-winning_ticket = []
-print("Let's see what the winning ticket is...")
+# winning_ticket = []
+# print("Let's see what the winning ticket is...")
 
 # We use a while loop because we don't want to keep repeating the
 # winning numbers or letters
 
-while len(winning_ticket) < 4:
-  pulled_item = choice(lottery_tickets)
+# while len(winning_ticket) < 4:
+#   pulled_item = choice(lottery_tickets)
 
-  if pulled_item not in winning_ticket:
-    print(f"We pulled a {pulled_item}! ")
-    winning_ticket.append(pulled_item)
+#   if pulled_item not in winning_ticket:
+#     print(f"We pulled a {pulled_item}! ")
+#     winning_ticket.append(pulled_item)
     
-print(f"The final winning ticket is: {winning_ticket}")
+# print(f"The final winning ticket is: {winning_ticket}")
 
 # 9-15 Lottery Analysis:
-# my_ticket = [1,2,3,4,5,9]
-# while my_ticket:
-#   if my_ticket == choice(my_ticket):
-#     print(f"The loop took ")
+def get_winning_ticket(lottery_tickets):
+  """Return a winning ticket from a set of lottery tickets"""
+  winning_ticket = []
+  while len(winning_ticket) < 4:
+    pulled_item = choice(lottery_tickets)
+    
+    if pulled_item not in winning_ticket:
+      print(f"We pulled a {pulled_item}! ")
+      winning_ticket.append(pulled_item)
+  return winning_ticket
+
+def check_ticket(played_ticket, winning_ticket):
+  # Check all elements in the player ticket
+  # If any are not in winning ticket, return False
+  for element in played_ticket:
+    if element not in winning_ticket:
+      return False
+
+  # We must have a winning ticket!
+  return True
+
+def make_random_ticket(lottery_tickets):
+  """Return a random ticket from a set of lottery tickets"""
+  tickets = []
+  while len(tickets) < 4:
+    pulled_item = choice(lottery_tickets)
+
+    if pulled_item not in tickets:
+      tickets.append(pulled_item)
+
+  return tickets
+
+lottery_tickets = [3, 4, 5, 6, 9, 7, 2, 10, 8, 1, 'r', 'g', 'h', 'z', 'e']
+winning_ticket = get_winning_ticket(lottery_tickets)
+
+plays = 0
+won = False
+
+MAX_TRIES = 1_000_000
+
+while not won:
+  new_ticket = make_random_ticket(lottery_tickets)
+  won = check_ticket(new_ticket, winning_ticket)
+  plays += 1
+  if plays >= MAX_TRIES:
+    break
+
+if won:
+  print("We have a winning ticket!")
+  print(f"Your ticket: {new_ticket}")
+  print(f"Winning ticket: {winning_ticket}")
+  print(f"It only took {plays} tries to win!")
+else:
+  print(f"Tried {plays} times, without pulling a winner. :(")
+  print(f"Your ticket: {new_ticket}")
+  print(f"Winning ticket: {winning_ticket}")
