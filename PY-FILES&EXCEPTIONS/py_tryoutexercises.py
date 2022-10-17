@@ -125,7 +125,43 @@
 #     print(f"The sum input of {x} and {y} is {sum}")
 
 # 10-8 Cats and Dogs:
-filename1 = 'text_files/cats.txt'
-with open(filename1) as f:
-  content = f.read()
-  print(content)
+# filenames = ['text_files/movers_files/cats.txt', 'text_files/dogs.txt']
+# for filename in filenames:
+#   try:
+#     with open(filename) as f:
+#       contents = f.read()
+#       print(contents)
+#   except FileNotFoundError:
+#     print('sorry the file you are trying to locate cannot be found!!!')
+
+# 10-9 Silent Cats and Dogs:
+"""Modifying the previous file"""
+# filenames = ['text_files/movers_file/cats.txt', 'text_files/dogs.txt']
+# for filename in filenames:
+#   try:
+#     with open(filename) as f:
+#       contents = f.read()
+# 
+#   except FileNotFoundError:
+#    pass
+#   else:
+#     print("\nReading file: {filename}")
+#     print(contents)
+
+# 10-10 Common Words:
+def count_words(filename, word):
+  """Printing how many times the appears in a text."""
+  try:
+    with open(filename, encoding='utf-8') as f:
+      contents = f.read()
+  except FileNotFoundError:
+    pass
+  else:
+    word_count = contents.lower().count(word)
+
+    msg = f"{word}' appears in {filename} about {word_count} times."
+
+    print(msg)
+    
+filename = 'text_files/ebooks.txt'
+count_words(filename, 'the')
