@@ -71,27 +71,61 @@
 
 
 # 10-5 Programming Poll:
-filename = 'text_files/poll_result.txt'
+# filename = 'text_files/poll_result.txt'
 
-active = True
+# active = True
 
-content = []
-print("Enter 'n' to exit the poll survey")
+# content = []
+# print("Enter 'n' to exit the poll survey")
 
-while active:
+# while active:
 
-  prompt = input("\nWhy do you like programming? ")
+#   prompt = input("\nWhy do you like programming? ")
 
-  content.append(prompt)
+#   content.append(prompt)
 
-  continue_poll = input("Would you like to let someone else respond? (y/n) ")
+#   continue_poll = input("Would you like to let someone else respond? (y/n) ")
 
-  if continue_poll != 'y':
+#   if continue_poll != 'y':
     
-    break
+#     break
   
-with open(filename, 'a') as f:
-  for response in content:
-    f.write(f"{response}\n")
+# with open(filename, 'a') as f:
+#   for response in content:
+#     f.write(f"{response}\n")
+
+# 10-6. Addition:
+# print("Enter two numbers to know their addition.")
+# try:
+#   input_one = int(input("Enter your first number: "))
+#   input_two = int(input("Enter your second number: "))
+# except ValueError:
+#   print("Enter a valid numerical values")
+# else:
+#   print(f"The sum input of {input_one} and {input_two} is {input_one + input_two}")
 
 
+# 10-7 Addition Calculator with while loop:
+# print("Enter 'q' to end game.")
+# activation = True
+# while activation:
+#   try:
+#     input_one = input("Enter your first number: ")
+#     if input_one == 'q':
+#       break
+#     x = int(input_one)
+#     input_two = input("Enter your second number: ")
+#     if input_two == 'q':
+#       break
+#     y = int(input_two)
+#   except ValueError:
+#     print("Enter a valid numerical values")
+#   else:
+#     sum = x + y
+#     print(f"The sum input of {x} and {y} is {sum}")
+
+# 10-8 Cats and Dogs:
+filename1 = 'text_files/cats.txt'
+with open(filename1) as f:
+  content = f.read()
+  print(content)
