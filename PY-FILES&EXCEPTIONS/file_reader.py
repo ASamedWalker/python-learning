@@ -141,23 +141,123 @@ with open(filename) as file_object:
 #   count_words(filename)
 
 # FAILING SILENTLY
-def count_words(filename):
-  """Count the approximate number of words in a file."""
-  try:
-    with open(filename, encoding='utf-8') as f:
-      contents = f.read()
-  except FileNotFoundError:
-    """To make a code fail silently python uses the pass statement.
-    The pass statement acts as a placeholder.
-    """
-    pass
-  else:
-  # Count the approximate number of words in the file.
-    words = contents.split()
-    num_words = len(words)
-    print(f"The file {filename} has about {num_words} words.")
-filenames = ['text_files/alice.txt', 'text_files/siddhartha.txt', 'text_files/moby_dick.txt', 'text_files/little_women.txt']
-for filename in filenames:
-  count_words(filename)
+# def count_words(filename):
+#   """Count the approximate number of words in a file."""
+#   try:
+#     with open(filename, encoding='utf-8') as f:
+#       contents = f.read()
+#   except FileNotFoundError:
+#     """To make a code fail silently python uses the pass statement.
+#     The pass statement acts as a placeholder.
+#     """
+#     pass
+#   else:
+#   # Count the approximate number of words in the file.
+#     words = contents.split()
+#     num_words = len(words)
+#     print(f"The file {filename} has about {num_words} words.")
+# filenames = ['text_files/alice.txt', 'text_files/siddhartha.txt', 'text_files/moby_dick.txt', 'text_files/little_women.txt']
+# for filename in filenames:
+#   count_words(filename)
 
 # DECIDING WHICH ERRORS TO REPORT
+# STORING DATA
+"""Using json.dump() and json.load().
+  json.dump() function takes two arguments: a piece of data to store
+  and a file object it can use to store the data.
+  it is use to store the set of data.
+"""
+# This are simple ways to share data between two programs
+# This is a json.dump() function
+# import json
+
+# numbers = [2, 3, 5, 7, 11, 13]
+
+# filename = 'text_files/numbers.json'
+# with open(filename, 'w') as f:
+#   json.dump(numbers, f)
+
+# This is a json.load() function
+# import json
+
+# filename = 'text_files/numbers.json'
+# with open(filename) as f:
+#   numbers = json.load(f)
+
+# print(numbers)
+
+# Saving and Reading User-Generated Data
+# It is useful when you're working with user-generated data
+# The user's name was stored in the json format
+# import json
+
+# username = input("What is your name? ")
+
+# filename = 'text_files/username.json'
+# with open(filename, 'w') as f:
+#   json.dump(username, f)
+#   print(f"We'll remember you when you come back, {username}!")
+
+# Now, lets read the json saved data with python
+# import json
+
+# filename = 'text_files/username.json'
+
+# with open(filename) as f:
+#   username = json.load(f)
+#   print(f"Welcome back, {username}!")
+
+
+# remember_me.py Example
+import json
+
+# Load the username, if it has been stored previously.
+# Otherwise, prompt for the username and store it.
+filename = 'text_files/username.json'
+
+try:
+  with open(filename) as f:
+    username = json.load(f)
+except FileNotFoundError:
+  username = input("What is your name? ")
+  with open(filename, 'w') as f:
+    json.dump(username, f)
+    print(f"We'll remember you when you come back, {username}!")
+else:
+  print(f"Welcome back, {username}!")
+
+# REFACTORING CODE
+"""Refactoring involves breaking up code into series of functions 
+   that have specific jobs.
+"""
+def greet_user():
+  """Greet the user by name."""
+  username = get_stored_username()
+
+  if username:
+    print(f"Welcome back, {username}!")
+  else:
+    username = get_new_username()
+    print(f"We'll remember you when you come back, {username}")
+greet_user()
+
+def get_new_username():
+  """Prompt for a new username."""
+  username = input("What is your name? ")
+  filename = 'text_files/username.json'
+  with open(filename, 'w') as f:
+    json.dump(username, f)
+  return username
+
+def get_stored_username():
+  """Get stored username if available."""
+  filename = 'text_files/username.json'
+
+  try:
+    with open(filename) as f:
+      username = json.load(f)
+  except FileNotFoundError:
+    return None
+  else:
+    return username
+
