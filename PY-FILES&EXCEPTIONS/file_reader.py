@@ -209,33 +209,42 @@ with open(filename) as file_object:
 
 
 # remember_me.py Example
-import json
+# import json
 
-# Load the username, if it has been stored previously.
-# Otherwise, prompt for the username and store it.
-filename = 'text_files/username.json'
+# # Load the username, if it has been stored previously.
+# # Otherwise, prompt for the username and store it.
+# filename = 'text_files/username.json'
 
-try:
-  with open(filename) as f:
-    username = json.load(f)
-except FileNotFoundError:
-  username = input("What is your name? ")
-  with open(filename, 'w') as f:
-    json.dump(username, f)
-    print(f"We'll remember you when you come back, {username}!")
-else:
-  print(f"Welcome back, {username}!")
+# try:
+#   with open(filename) as f:
+#     username = json.load(f)
+# except FileNotFoundError:
+#   username = input("What is your name? ")
+#   with open(filename, 'w') as f:
+#     json.dump(username, f)
+#     print(f"We'll remember you when you come back, {username}!")
+# else:
+#   if username:
+#     correct = input(f"Are you {username}: (y / n)")
+#     if correct == 'y':
+#       print(f"Welcome back, {username}!")
+#     else:
+      
 
 # REFACTORING CODE
 """Refactoring involves breaking up code into series of functions 
    that have specific jobs.
 """
+import json
+
 def greet_user():
   """Greet the user by name."""
   username = get_stored_username()
 
   if username:
-    print(f"Welcome back, {username}!")
+    correct = input(f"Are you {username}: (y/n)")
+    if correct == 'y':
+      print(f"Welcome back, {username}!")
   else:
     username = get_new_username()
     print(f"We'll remember you when you come back, {username}")

@@ -149,19 +149,89 @@
 #     print(contents)
 
 # 10-10 Common Words:
-def count_words(filename, word):
-  """Printing how many times the appears in a text."""
-  try:
-    with open(filename, encoding='utf-8') as f:
-      contents = f.read()
-  except FileNotFoundError:
-    pass
-  else:
-    word_count = contents.lower().count(word)
+# def count_words(filename, word):
+#   """Printing how many times the appears in a text."""
+#   try:
+#     with open(filename, encoding='utf-8') as f:
+#       contents = f.read()
+#   except FileNotFoundError:
+#     pass
+#   else:
+#     word_count = contents.lower().count(word)
 
-    msg = f"{word}' appears in {filename} about {word_count} times."
+#     msg = f"{word}' appears in {filename} about {word_count} times."
 
-    print(msg)
+#     print(msg)
     
-filename = 'text_files/ebooks.txt'
-count_words(filename, 'the')
+# filename = 'text_files/ebooks.txt'
+# count_words(filename, 'the')
+
+
+# 10-11 Favorite Number:
+# import json
+
+# filename = "text_files/favorite_numbers.json"
+
+# f_number = int(input("Enter your favorite number: "))
+
+# with open(filename, 'w') as f:
+
+#   json.dump(f_number, f)
+
+# with open(filename) as f:
+
+#   r_number = json.load(f)
+
+#   print(f"I know your favorite number is {r_number}")
+
+# 10-12 Favorite Number Remembered:
+# combineOnenumberintoonefile.py
+# import json
+# try:
+#   filename = "text_files/favorite_numbers.json"
+#   with open(filename) as f:
+#     username = json.load(f)
+# except FileNotFoundError:
+#   username = int(input("Enter your favorite number: "))
+#   with open(filename, 'w') as f:
+#     json.dump(username, f)
+# else:
+#   print(f"I remembered your favorite number is {username}!")
+
+# 10-13 Verify User
+import json
+
+
+def get_new_username():
+  """Prompt for a new username."""
+  username = input("What is your name? ")
+  filename = 'text_files/username.json'
+  with open(filename, 'w') as f:
+    json.dump(username, f)
+  return username
+
+def get_stored_username():
+  """Get stored username if available."""
+  filename = 'text_files/username.json'
+
+  try:
+    with open(filename) as f:
+      username = json.load(f)
+  except FileNotFoundError:
+    return None
+  else:
+    return username
+
+def greet_user():
+  """Greet the user by name."""
+  username = get_stored_username()
+
+  if username:
+    correct = input(f"Are you {username}: (y/n)")
+    if correct == 'y':
+      print(f"Welcome back, {username}!")
+  else:
+    username = get_new_username()
+    print(f"We'll remember you when you come back, {username}")
+    
+greet_user()
