@@ -26,13 +26,23 @@ cars = ['bmw', 'audi', 'toyota', 'subaru']
 
 # Reversing the list in chronological order using the 
 # reverse() method
-print(cars)
+# print(cars)
 # reverse method simply reverses the order of the list
 # not in alphabetical order, but permanently.
-cars.reverse()
-print(cars)
+# cars.reverse()
+# print(cars)
 
 # You can revert the list to it's original 
 # state by calling the reverse() method again
-cars.reverse()
-print(cars)
+# cars.reverse()
+# print(cars)
+
+
+# Using If-Statements with List
+cars = ['bmw', 'audi', 'toyota', 'subaru']
+
+for car in cars:
+  if car == 'bmw':
+    print(car.upper())
+  else:
+    print(car.title())
