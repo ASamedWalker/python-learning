@@ -39,13 +39,46 @@
 # print(f"We have {len(dinner_guest)} guest attending the dinner party.")
 
 # 3-10 Every Function:
-mountains = ['look', 'fair', 'lky']
+# mountains = ['look', 'fair', 'lky']
 
-mountains.reverse()
-print(mountains)
+# mountains.reverse()
+# print(mountains)
 
-mountains.sort()
-print(mountains)
+# mountains.sort()
+# print(mountains)
 
-print(sorted(mountains, reverse=True))
-print(sorted(mountains))
+# print(sorted(mountains, reverse=True))
+# print(sorted(mountains))
+
+# 6-9. Favorite Places:
+favorite_places = {
+  'joe': {
+    'desti_1': 'london, united kingdom',
+    'desti_2': 'new york, usa',
+    'desti_3':'accra, ghana',
+  },
+  
+  'alex': {
+    'desti_1':'nairobi, kenya',
+    'desti_2':'rio, brazil',
+    'desti_3':'osaka, japan',
+  },
+  
+  'monique': {
+    'desti_1':'cape town, south africa',
+    'desti_2':'lome, togo',
+    'desti_3':'abuja, nigeria',
+  },
+}
+
+for name, info in favorite_places.items():
+  print(f"\nFavorite places of {name.title()} are: ")
+  
+  location1 = f"{info['desti_1'].title()}"
+  location2 = f"{info['desti_2'].title()}"
+  location3 = f"{info['desti_3'].title()}"
+  
+  print(f"\t - {location1.title()}")
+  print(f"\t - {location2.title()}")
+  print(f"\t - {location3.title()}")
+  
