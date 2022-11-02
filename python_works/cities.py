@@ -34,13 +34,22 @@
 
 
 # Using break to exit a loop
-prompt = "\nPlease enter the name of a city you have visited:"
-prompt += "\n(Enter 'quit' when you are finished.)"
+# prompt = "\nPlease enter the name of a city you have visited:"
+# prompt += "\n(Enter 'quit' when you are finished.)"
 
-while True:
-  city = input(prompt)
+# while True:
+#   city = input(prompt)
   
-  if city == 'quit':
-    break
-  else:
-    print(f"I'd love to go to {city.title()}!")
+#   if city == 'quit':
+#     break
+#   else:
+#     print(f"I'd love to go to {city.title()}!")
+
+# Define a function called Cities
+def describe_city(city, country="japan"):
+  """Display a short message about a city and country"""
+  print(f"{city} is a city in {country}.")
+
+describe_city(city='Osaka')
+describe_city(city='Hiroshima')
+describe_city(city='Accra', country='Ghana')
