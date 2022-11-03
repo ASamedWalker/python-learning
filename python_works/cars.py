@@ -39,10 +39,38 @@ cars = ['bmw', 'audi', 'toyota', 'subaru']
 
 
 # Using If-Statements with List
-cars = ['bmw', 'audi', 'toyota', 'subaru']
+# cars = ['bmw', 'audi', 'toyota', 'subaru']
 
-for car in cars:
-  if car == 'bmw':
-    print(car.upper())
-  else:
-    print(car.title())
+# for car in cars:
+#   if car == 'bmw':
+#     print(car.upper())
+#   else:
+#     print(car.title())
+
+
+# 8-14 Cars:
+# def make_car(manufacturer, model_name, **kwargs):
+#   """Simulating a dictionary of a model of a car."""
+#   kwargs['manufacturer'] = manufacturer
+#   kwargs['model'] = model_name
+#   return kwargs
+
+# car = make_car('subaru', 'outback', color='blue', tow_package=True)
+# print(car)
+
+# OR
+
+def make_car(manufacturer, model_name, **kwargs):
+  """Simulating a dictionary of a model of a car."""
+  car_dict = {
+    'manufacturer': manufacturer,
+    'model': model_name
+  }
+  
+  for option, value in kwargs.items():
+    car_dict[option] = value
+    
+  return car_dict
+
+car = make_car('subaru', 'outback', color='blue', tow_package=True)
+print(car)
