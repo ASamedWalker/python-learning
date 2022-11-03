@@ -38,11 +38,7 @@ def unprinted_copy(unprinted):
   print(unprinted)
 
 
-unprinted_designs = ['phone case', 'robot pendant', 'dodecahedron']
-unprinted_copy = unprinted_designs[:]
-completed_models = []
 
-print_models(unprinted_copy, completed_models)
-print(unprinted_designs)
-show_completed_models(completed_models)
+
+
 

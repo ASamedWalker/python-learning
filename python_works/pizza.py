@@ -22,5 +22,5 @@ def make_pizza(size, *args):
   for topping in args:
     print(f"- {topping}")
   
-make_pizza(16, 'pepperoni')
-make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+# make_pizza(16, 'pepperoni')
+# make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
