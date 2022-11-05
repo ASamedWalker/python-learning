@@ -28,8 +28,6 @@ class User:
     """Reset login attempts to 0."""
     self.login_attempts = 0
     
-    02
-    
 member_user = User('Samed', 'Walker', 15)
 
 member_user.increment_login_attempts()
