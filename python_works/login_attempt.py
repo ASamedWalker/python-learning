@@ -6,6 +6,7 @@ class User:
     self.first_name = first_name
     self.last_name = last_name
     self.age = age
+    self.login_attempts = 0
     
     
   def describe_user(self):
@@ -19,25 +20,20 @@ class User:
     """Print a personalized greeting to the user."""
     print(f"{self.first_name} {self.last_name}, Welcome to Python.")
     
+  def increment_login_attempts(self):
+    """Increment login attempts by 1."""
+    self.login_attempts += 1
     
-user1 = User('Samed', 'Walker', 15)
-user2 = User('Joe', 'Rogan', 20)
-user3 = User('Bob', 'Steven', 17)
+  def reset_login_attempts(self):
+    """Reset login attempts to 0."""
+    self.login_attempts = 0
+    
+    02
+    
+member_user = User('Samed', 'Walker', 15)
 
+member_user.increment_login_attempts()
+print(f"Login attempts: {member_user.login_attempts}")
 
-# print(user1.first_name)
-# print(user1.last_name)
-# user1.describe_user()
-# user1.greet_user()
-
-# print("\n")
-# print(user2.first_name)
-# print(user2.last_name)
-# user2.describe_user()
-# user2.greet_user()
-
-# print("\n")
-# print(user3.first_name)
-# print(user3.last_name)
-# user3.describe_user()
-# user3.greet_user()
+member_user.reset_login_attempts()
+print(f"Login attempts: {member_user.login_attempts}")
