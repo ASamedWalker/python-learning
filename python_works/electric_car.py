@@ -35,61 +35,61 @@ class Car:
     print("I only fill gas in my car")
     
     
-class Battery:
-  """A simple attempt to model a battery for an electric car."""
+# class Battery:
+#   """A simple attempt to model a battery for an electric car."""
   
-  def __init__(self, battery_size=75) -> None:
-    """Initialize the battery's attributes."""
-    self.battery_size = battery_size
+#   def __init__(self, battery_size=75) -> None:
+#     """Initialize the battery's attributes."""
+#     self.battery_size = battery_size
     
-  def describe_battery(self):
-    """Print a statement describing the battery size."""
-    print(f"This car has a {self.battery_size}-kWh battery.")
+#   def describe_battery(self):
+#     """Print a statement describing the battery size."""
+#     print(f"This car has a {self.battery_size}-kWh battery.")
   
-  def get_range(self):
-    """PRint a statement about the range this battery provides."""
-    if self.battery_size == 75:
-      range = 260
-    elif self.battery_size == 100:
-      range = 315
+#   def get_range(self):
+#     """PRint a statement about the range this battery provides."""
+#     if self.battery_size == 75:
+#       range = 260
+#     elif self.battery_size == 100:
+#       range = 315
       
-    print(f"This car can go about {range} miles on a full charge.")
+#     print(f"This car can go about {range} miles on a full charge.")
     
-  def uprade_battery(self):
-    """Checking the battery size of the electric car."""
-    if self.battery_size == 75:
-      self.battery_size = 100
-      print('Upgraded the battery to 100 kWh')
-    else:
-      print("The battery is already upgraded.")
+#   def uprade_battery(self):
+#     """Checking the battery size of the electric car."""
+#     if self.battery_size == 75:
+#       self.battery_size = 100
+#       print('Upgraded the battery to 100 kWh')
+#     else:
+#       print("The battery is already upgraded.")
 
-class ElectricCar(Car):
-  """
-  Initialize attributes of the parent class.
-  Then initialize attributes specific to an electric car.
-  Represent aspects of a car, specific to electric vehicles.
-  """
+# class ElectricCar(Car):
+#   """
+#   Initialize attributes of the parent class.
+#   Then initialize attributes specific to an electric car.
+#   Represent aspects of a car, specific to electric vehicles.
+#   """
   
-  def __init__(self, make, model, year):
-    """Initialize attributes of the parent class."""
-    super().__init__(make, model, year)
-    self.battery = Battery()
+#   def __init__(self, make, model, year):
+#     """Initialize attributes of the parent class."""
+#     super().__init__(make, model, year)
+#     self.battery = Battery()
     
-  #Override the fill_gas_Tank method in the car class
-  def fill_gas_tank(self):
-    """Electric cars don't have a gas tanks."""
-    print("This car doesn't need a gas tank!")
+#   #Override the fill_gas_Tank method in the car class
+#   def fill_gas_tank(self):
+#     """Electric cars don't have a gas tanks."""
+#     print("This car doesn't need a gas tank!")
   
     
-my_tesla = ElectricCar('tesla', 'model s', 2019)
-# print(my_tesla.get_descriptive_name())
-# # my_tesla.describe_battery()
-# my_tesla.fill_gas_tank()
-# my_tesla.battery.describe_battery()
+# my_tesla = ElectricCar('tesla', 'model s', 2019)
+# # print(my_tesla.get_descriptive_name())
+# # # my_tesla.describe_battery()
+# # my_tesla.fill_gas_tank()
+# # my_tesla.battery.describe_battery()
+# # my_tesla.battery.get_range()
+
 # my_tesla.battery.get_range()
 
-my_tesla.battery.get_range()
+# my_tesla.battery.uprade_battery()
 
-my_tesla.battery.uprade_battery()
-
-my_tesla.battery.get_range()
+# my_tesla.battery.get_range()
